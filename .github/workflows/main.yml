@@ -23,7 +23,7 @@ jobs:
       - name: NuGet restore
         run: |
           nuget restore LearningSpace.sln
-          msbuild sample.sln
+          msbuild LearningSpace.sln
         working-directory: ./LearningSpace
         shell: cmd
       
