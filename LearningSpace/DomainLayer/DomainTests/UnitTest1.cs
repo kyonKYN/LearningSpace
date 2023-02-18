@@ -10,6 +10,7 @@ namespace DomainTests
         public void TestMethod()
         {
             // OK
+            Assert.Fail();
         }
     }
 }
