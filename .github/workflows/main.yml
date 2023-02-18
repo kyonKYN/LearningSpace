@@ -11,6 +11,9 @@ jobs:
 
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
+        
+      - name: Run a one-line script
+        run:  '& "$(vswhere -property installationPath)\Common7\IDE\MSTest.exe" /help'
 
       - run: dotnet build LearningSpace\LearningSpace.sln
       - run: dotnet test LearningSpace\LearningSpace.sln
