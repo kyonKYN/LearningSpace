@@ -94,5 +94,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainLayer\Domain\Domain.csproj">
+      <Project>{48071397-ef3f-4309-abe9-78484c1bdcf9}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InfrastructureLayer\Repository\Repository.csproj">
+      <Project>{12ed129a-8e61-45b3-b51a-09a9a943b438}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PresentationLayer\ViewModel\ViewModel.csproj">
+      <Project>{8e909ee9-5159-4372-bf9d-8ab7341d1ce0}</Project>
+      <Name>ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PresentationLayer\View\View.csproj">
+      <Project>{ae220864-f144-4352-89db-08b74ee4d8f0}</Project>
+      <Name>View</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UseCaseLayer\UseCase\UseCase.csproj">
+      <Project>{9a035f5e-8f86-4c87-ab74-5247e52cfd43}</Project>
+      <Name>UseCase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
