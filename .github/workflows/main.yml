@@ -11,6 +11,20 @@ jobs:
 
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.1
-
-      - run: dotnet build
-      - run: dotnet test
+        
+      - name: Setup VSTest Path
+        uses: darenm/Setup-VSTest@v1
+        
+      - uses: nuget/setup-nuget@v1
+        with:
+          nuget-api-key: ${{ secrets.NuGetAPIKey }}
+          nuget-version: '5.x'
+      
+      - name: NuGet restore
+        run: |
+          nuget restore LearningSpace.sln
+          msbuild LearningSpace.sln
+        working-directory: ./LearningSpace
+        shell: cmd
+      
+      - run: dotnet test LearningSpace\LearningSpace.sln
