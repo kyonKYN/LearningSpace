@@ -44,5 +44,11 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\UseCaseLayer\UseCase\UseCase.csproj">
+      <Project>{9a035f5e-8f86-4c87-ab74-5247e52cfd43}</Project>
+      <Name>UseCase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
