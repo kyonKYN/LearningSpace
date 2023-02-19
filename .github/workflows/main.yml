@@ -28,4 +28,4 @@ jobs:
         shell: cmd
       
       - name: Dotnet test
-        run: dotnet test .\DomainLayer\DomainTests\bin\Debug\DomainTests.dll
+        run: dotnet test DomainLayer\DomainTests\bin\Debug\DomainTests.dll
