@@ -20,9 +20,6 @@ jobs:
         
       - name: .NET Build
         run: dotnet build LearningSpace.sln
-    
-      - env: 
-          Domain_Test_Path: DomainLayer\DomainTests\bin\Debug\DomainTests.dll
       
       - name: .NET test
-        run: dotnet test $env:Domain_Test_Path
+        run: dotnet test DomainLayer\DomainTests\bin\Debug\DomainTests.dll
