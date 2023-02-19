@@ -7,9 +7,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-
-      - name: Setup .NetFramework
-        uses: microsoft/setup-msbuild@v1.1
         
       - uses: nuget/setup-nuget@v1
         with:
@@ -23,10 +20,10 @@ jobs:
         
       - name: .NET Build
         run: dotnet build LearningSpace.sln
-        working-directory: ./LearningSpace
-        shell: cmd
+        
+      - name: TestProjectPath Setup
+        env: 
+          Domain_Test_Path: DomainLayer\DomainTests\bin\Debug\DomainTests.dll
       
       - name: .NET test
-        run: dotnet test LearningSpace.sln
-        working-directory: ./LearningSpace
-        shell: cmd
+        run: dotnet test $env:Domain_Test_Path
