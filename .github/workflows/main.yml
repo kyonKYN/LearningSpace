@@ -3,29 +3,30 @@ name: MSBuild
 on: push
 
 jobs:
-  build:
-    runs-on: windows-2019
+  build-and-test:
+    runs-on: windows-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Add msbuild to PATH
+      - name: Setup .NetFramework
         uses: microsoft/setup-msbuild@v1.1
-        
-      - name: Setup VSTest Path
-        uses: darenm/Setup-VSTest@v1
         
       - uses: nuget/setup-nuget@v1
         with:
           nuget-api-key: ${{ secrets.NuGetAPIKey }}
           nuget-version: '5.x'
-      
+          
       - name: NuGet restore
-        run: |
-          nuget restore LearningSpace.sln
-          msbuild LearningSpace.sln
+        run: nuget restore LearningSpace.sln
+        working-directory: ./LearningSpace
+        shell: cmd
+        
+      - name: .NET Build
+        run: dotnet build LearningSpace.sln
         working-directory: ./LearningSpace
         shell: cmd
       
-      - name: Dotnet test
-        run: dotnet test DomainLayer\DomainTests\bin\Debug\DomainTests.dll
+      - name: .NET test
+        run: dotnet test LearningSpace.sln
+        working-directory: ./LearningSpace
+        shell: cmd
