@@ -27,4 +27,5 @@ jobs:
         working-directory: ./LearningSpace
         shell: cmd
       
-      - run: dotnet test LearningSpace\LearningSpace.sln
+      - name: Dotnet test
+        run: dotnet test .\DomainLayer\DomainTests\bin\Debug\DomainTests.dll
